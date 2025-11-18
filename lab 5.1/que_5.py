@@ -5,9 +5,9 @@ find the position of the word "AI" in the sentence "Machine Learning and AI are 
 '''
 
 s = "Machine Learning and AI are trending"
-print("Position of 'AI' :", sentence.find("AI"))
+print("Position of 'AI' :", s.find("AI"))
 
-n_s = sentence.replace("AI", "Artificial Intelligence")
+n_s = s.replace("AI", "Artificial Intelligence")
 print("Replaced sentence:", n_s)
 
 data_text = "data data mining and big data"
