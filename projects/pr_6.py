@@ -1,17 +1,13 @@
-
 import os
 from datetime import datetime
 
-journal_path = "journal.txt"  # fixed per spec
-
+journal_path = "journal.txt"  
 class JournalManager:
     """Manager class handles file I/O and actions for the journal."""
     def __init__(self, filename="journal_path"):
         self.filename = filename
 
-    # ADD
     def add_entry(self, text):
-        # append with timestamp using 'a' mode
         try:
             with open(self.filename, "a", encoding="utf-8") as f:
                 now_stamp = datetime.now().strftime("[%Y-%m-%d %H:%M:%S]")
@@ -22,7 +18,6 @@ class JournalManager:
         except Exception as e:
             return False, "Unexpected error: " + str(e)
 
-    # VIEW
     def view_all(self):
         try:
             with open(self.filename, "r", encoding="utf-8") as f:
@@ -33,7 +28,6 @@ class JournalManager:
         except Exception as e:
             return False, "Unexpected error: " + str(e)
 
-    # SEARCH
     def find_item(self, keyword):
         try:
             with open(self.filename, "r", encoding="utf-8") as f:
@@ -49,7 +43,7 @@ class JournalManager:
             return True, "\n\n".join(matches)
         return False, "No entries were found for the keyword: " + keyword
 
-    # DELETE
+
     def wipe_all(self):
         if not os.path.exists(self.filename):
             return False, "No journal entries to delete."
